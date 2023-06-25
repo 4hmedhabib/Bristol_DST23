@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Q1: Load the dataset "student_data.csv" into a NumPy array, using np.genfromtxt.
 # Load the data from a CSV file
@@ -77,6 +78,15 @@ passing_percentage = 100 * np.sum(student_data['TestScore'] >= 60) / len(student
 total_passing_students= np.argwhere(student_data['TestScore'] >= 60)
 
 # Print the percentage of students who passed the test (grade >= 60) to the console with formatting
-print(f'8. {np.size(total_passing_students)} of students passed the test, indicating {passing_percentage}.')
+print(f'8. {np.size(total_passing_students)} of students passed the test, indicating {passing_percentage}%.')
 
 # Q8: Visualize the distribution of test scores using a histogram.
+scores = np.array(student_data['TestScore'])
+
+plt.hist(scores, bins=10, width=5)
+
+plt.xlabel('Test Scores')
+plt.ylabel('Frequency')
+plt.title('Distribution of Test Scores')
+
+plt.show()
